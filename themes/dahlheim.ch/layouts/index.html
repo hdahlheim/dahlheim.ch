@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="font-sans">
+  {{- partial "head.html" . -}}
+  <body>
+    <main class="container px-2 md:px-6 h-screen flex items-center mx-auto">
+      <div>
+        <h1 class="text-4xl sm:text-5xl text-highlight font-bold">
+          {{ .Title }}
+        </h1>
+        <div class="max-w-line-lg markdown font-medium text-lg">
+          {{- .Content -}}
+        </div>
+        <nav class="mt-4 text-lg text-gray-900 font-semibold">
+          <ul class="sm:flex">
+          {{- range .Site.Menus.main -}}
+            <li class="mr-4">
+                <a class="hover:text-highlight" referrerpolicy="noreferrer" href="{{ .URL }}">{{ .Name }}</a>
+            </li>
+          {{- end -}}
+          </ul>
+        </nav>
+      </div>
+    </main>
+    {{- partial "footer.html" . -}}
+  </body>
+</html>
