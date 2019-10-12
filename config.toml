@@ -1,5 +1,5 @@
 languageCode = "ch-de"
-title = "Hello ich bin Henning"
+title = "Hello, ich bin Henning"
 theme = "dahlheim.ch"
 
 pygmentsCodefences = true
