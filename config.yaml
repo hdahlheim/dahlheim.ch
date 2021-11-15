@@ -35,7 +35,10 @@ languages:
     weight: 1
     LanguageName: "Englisch"
     menu:
-    #   main:
+      main:
+        - url: /work/
+          name: Blog
+          weight: 1
     #     - url: "/posts/"
     #       name: "Blog"
     #       weight: 1
@@ -45,13 +48,6 @@ languages:
     #     - url: "/uses/"
     #       name: "My Tools"
     #       weight: 3
-    #   contact:
-    #     - url: "https://github.com/hdahlheim"
-    #       name: "Github"
-    #       weight: 1
-    #     - url: "https://twitter.com/hactar_"
-    #       name: "Twitter"
-    #       weight: 2
       social:
       - url: https://github.com/hdahlheim
         name: Github
