@@ -644,7 +644,7 @@ video {
 }
 
 .markdown > * + *, .markdown li + li, .markdown li > p + p {
-  margin-top: 1rem;
+  margin-top: 0.625rem;
 }
 
 .markdown strong {
@@ -668,6 +668,23 @@ video {
 
 .h1, .markdown h1 {
   line-height: 1.25;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgba(17, 24, 39, var(--tw-text-opacity));
+  margin-bottom: 0.5rem;
+  margin-top: 2.5rem;
+}
+
+.h1 > a, .markdown h1 > a {
+  border-bottom-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgba(250, 33, 31, var(--tw-border-opacity));
+}
+
+.h2, .markdown h2 {
+  line-height: 1.25;
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
@@ -677,20 +694,9 @@ video {
   margin-top: 2.5rem;
 }
 
-.h2, .markdown h2 {
-  line-height: 1.25;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 700;
-  --tw-text-opacity: 1;
-  color: rgba(17, 24, 39, var(--tw-text-opacity));
-  margin-bottom: 0.5rem;
-  margin-top: 2.5rem;
-}
-
 .h3, .markdown h3 {
   line-height: 1.25;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   line-height: 1.75rem;
   font-weight: 700;
   --tw-text-opacity: 1;
@@ -744,22 +750,6 @@ video {
   }
 } */
 
-.absolute {
-  position: absolute;
-}
-
-.relative {
-  position: relative;
-}
-
-.right-0 {
-  right: 0px;
-}
-
-.top-0 {
-  top: 0px;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -773,11 +763,6 @@ video {
 .mx-3 {
   margin-left: 0.75rem;
   margin-right: 0.75rem;
-}
-
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 
 .mt-4 {
@@ -798,10 +783,6 @@ video {
 
 .mb-8 {
   margin-bottom: 2rem;
-}
-
-.mt-8 {
-  margin-top: 2rem;
 }
 
 .mt-12 {
@@ -868,16 +849,16 @@ video {
   border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
 }
 
-.rounded {
-  border-radius: 0.25rem;
-}
-
-.border {
-  border-width: 1px;
+.border-2 {
+  border-width: 2px;
 }
 
 .border-b {
   border-bottom-width: 1px;
+}
+
+.border-b-2 {
+  border-bottom-width: 2px;
 }
 
 .border-gray-100 {
@@ -890,37 +871,9 @@ video {
   border-color: rgba(229, 231, 235, var(--tw-border-opacity));
 }
 
-.border-yellow-600 {
+.border-highlight {
   --tw-border-opacity: 1;
-  border-color: rgba(217, 119, 6, var(--tw-border-opacity));
-}
-
-.border-yellow-400 {
-  --tw-border-opacity: 1;
-  border-color: rgba(251, 191, 36, var(--tw-border-opacity));
-}
-
-.bg-yellow-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(253, 230, 138, var(--tw-bg-opacity));
-}
-
-.bg-yellow-50 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(255, 251, 235, var(--tw-bg-opacity));
-}
-
-.p-2 {
-  padding: 0.5rem;
-}
-
-.p-1 {
-  padding: 0.25rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  border-color: rgba(250, 33, 31, var(--tw-border-opacity));
 }
 
 .px-6 {
@@ -970,16 +923,6 @@ video {
   line-height: 1.25rem;
 }
 
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
 .font-semibold {
   font-weight: 600;
 }
@@ -994,10 +937,6 @@ video {
 
 .font-normal {
   font-weight: 400;
-}
-
-.font-light {
-  font-weight: 300;
 }
 
 .text-highlight {
@@ -1020,28 +959,19 @@ video {
   color: rgba(75, 85, 99, var(--tw-text-opacity));
 }
 
-.text-yellow-800 {
-  --tw-text-opacity: 1;
-  color: rgba(146, 64, 14, var(--tw-text-opacity));
-}
-
 .underline {
   text-decoration: underline;
+}
+
+.transition-colors {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .hover\:text-highlight:hover {
   --tw-text-opacity: 1;
   color: rgba(250, 33, 31, var(--tw-text-opacity));
-}
-
-.hover\:text-black:hover {
-  --tw-text-opacity: 1;
-  color: rgba(0, 0, 0, var(--tw-text-opacity));
-}
-
-.hover\:text-gray-900:hover {
-  --tw-text-opacity: 1;
-  color: rgba(17, 24, 39, var(--tw-text-opacity));
 }
 
 @media (min-width: 640px) {
@@ -1096,11 +1026,6 @@ video {
 @media (min-width: 768px) {
   .md\:w-full {
     width: 100%;
-  }
-
-  .md\:px-6 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
   }
 }
 

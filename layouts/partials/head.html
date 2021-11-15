@@ -1,13 +1,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {{ if not (eq .Title $.Site.Title) }}
-    <title>{{ .Title }} — {{ $.Site.Title }}</title>
-  {{ else }}
+  {{- template "_internal/opengraph.html" . -}}
+  {{- template "_internal/twitter_cards.html" . }}
+  {{ if not (eq .Title $.Site.Title) -}}
+  <title>{{ .Title }} — {{ $.Site.Title }}</title>
+  {{- else -}}
     <title>{{ $.Site.Title }}</title>
-  {{ end }}
-  {{ with resources.Get "/css/styles.css" | minify }}
-    <style>{{ .Content | safeCSS }}</style>
-  {{ end }}
+  {{- end -}}
+  {{- with resources.Get "/css/styles.css" | minify -}}
+    <style>{{- .Content | safeCSS -}}</style>
+  {{- end -}}
   <link rel="prefetch" href="https://rsms.me/inter/inter.css" prefetch>
 </head>

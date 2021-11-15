@@ -10,7 +10,7 @@
 }
 
 .markdown > * + *,  .markdown li + li, .markdown li > p + p {
-  @apply mt-4;
+  @apply mt-2.5;
 }
 
 .markdown strong {
@@ -32,16 +32,20 @@
 
 .h1, .markdown h1 {
   @apply leading-tight;
-  @apply text-2xl;
+  @apply text-3xl;
   @apply font-bold;
   @apply text-gray-900;
   @apply mb-2;
   @apply mt-10;
 }
 
+.h1 > a, .markdown h1 > a {
+  @apply border-b-2 border-highlight
+}
+
 .h2, .markdown h2 {
   @apply leading-tight;
-  @apply text-xl;
+  @apply text-2xl;
   @apply font-bold;
   @apply text-gray-900;
   @apply mb-2;
@@ -50,7 +54,7 @@
 
 .h3, .markdown h3 {
   @apply leading-tight;
-  @apply text-lg;
+  @apply text-xl;
   @apply font-bold;
   @apply text-gray-900;
   @apply mt-8;

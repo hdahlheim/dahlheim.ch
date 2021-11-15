@@ -3,7 +3,7 @@
   <p>
     {{ i18n "translations" }}
     {{ range .Translations }}
-      <a class="underline" href="{{ .Permalink }}">{{ .Language.LanguageName }}{{ if .IsPage }}{{ end }}</a>&nbsp;
+      <a class="underline hover:text-highlight" href="{{ .Permalink }}">{{ .Language.LanguageName }}{{ if .IsPage }}{{ end }}</a>&nbsp;
     {{ end }}
   </p>
 </small>

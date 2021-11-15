@@ -2,6 +2,6 @@
 title: Work
 ---
 
-I’m working as a fullstack developer for the swiss webhosting company [cyon](https://cyon.ch).
+I’m working as a full-stack developer for the Swiss web-hosting company [cyon](https://cyon.ch).
 
-There I work primely in the Languages Elixir, PHP and Javascript
+There I work primely in the languages Elixir, PHP, and Javascript.
