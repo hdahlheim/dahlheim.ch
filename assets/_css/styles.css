@@ -1,0 +1,100 @@
+@tailwind base;
+
+@tailwind components;
+
+.markdown {
+  @apply text-lg;
+  @apply text-gray-900;
+  @apply leading-normal;
+  @apply font-medium;
+}
+
+.markdown > * + *,  .markdown li + li, .markdown li > p + p {
+  @apply mt-4;
+}
+
+.markdown strong {
+  @apply text-gray-900;
+  @apply font-bold;
+}
+
+.markdown a {
+  @apply underline;
+}
+
+.markdown a:hover {
+  @apply text-highlight;
+}
+
+.markdown strong a {
+  @apply font-bold;
+}
+
+.h1, .markdown h1 {
+  @apply leading-tight;
+  @apply text-2xl;
+  @apply font-bold;
+  @apply text-gray-900;
+  @apply mb-2;
+  @apply mt-10;
+}
+
+.h2, .markdown h2 {
+  @apply leading-tight;
+  @apply text-xl;
+  @apply font-bold;
+  @apply text-gray-900;
+  @apply mb-2;
+  @apply mt-10;
+}
+
+.h3, .markdown h3 {
+  @apply leading-tight;
+  @apply text-lg;
+  @apply font-bold;
+  @apply text-gray-900;
+  @apply mt-8;
+  @apply -mb-2;
+}
+
+.markdown code {
+  @apply font-mono;
+  @apply text-sm;
+  @apply inline;
+  @apply px-1;
+}
+
+.markdown pre {
+  @apply rounded;
+  @apply overflow-hidden;
+}
+.markdown pre code {
+  @apply block;
+  @apply bg-gray-900;
+  @apply p-4;
+}
+
+.markdown blockquote {
+  @apply border-l-4;
+  @apply border-gray-300;
+  @apply pl-4;
+  @apply italic;
+}
+
+.markdown ul {
+  @apply list-disc;
+  @apply pl-5;
+}
+
+.markdown ol {
+  @apply list-decimal;
+  @apply pl-5;
+}
+
+/* @screen sm {
+  .markdown ul, .markdown ol {
+    @apply pl-10;
+  }
+} */
+
+@tailwind utilities;

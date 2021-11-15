@@ -1,0 +1,38 @@
+<header class="px-6 py-6 mb-12 border-b border-gray-200 sm:px-12 lg:px-16 sm:mb-16">
+  <div class="container grid items-center justify-between mx-auto space-y-4 sm:space-y-0 sm:grid-cols-3">
+    <nav>
+      <a class="text-lg font-semibold hover:text-highlight" href="{{ "/" | absLangURL }}">
+        Henning Dahlheim
+      </a>
+    </nav>
+    <nav class="space-y-3 sm:space-y-0">
+      <ul class="justify-center font-medium sm:space-x-4 sm:flex">
+        {{- $currentPage := . -}}
+        {{- range .Site.Menus.main -}}
+        <li class="{{ if $currentPage.IsMenuCurrent "main" . }}text-highlight{{end}} hover:text-highlight">
+          <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+        </li>
+        {{- end -}}
+      </ul>
+    </nav>
+    <nav class="lg:text-sm xl:text-base">
+      <ul class="sm:space-x-4 sm:justify-end sm:flex">
+        {{- range .Site.Menus.contact -}}
+        <li class="text-gray-700">
+          <a href="{{ .URL }}" rel="me">{{ .Name }}</a>
+        </li>
+        {{- end -}}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- <li class="mx-3 {{ cond (eq .Params.nav_section nil) "" "text-gray-600" }}">
+  <a href="/">Blog</a>
+</li>
+<li class="mx-3 {{ cond (eq .Params.nav_section "speaking") "" "text-gray-600" }}">
+  <a href="/speaking">Speaking</a>
+</li>
+<li class="mx-3 {{ cond (eq .Params.nav_section "opensource") "" "text-gray-600" }}">
+  <a href="/open-source">Open source</a>
+</li> -->

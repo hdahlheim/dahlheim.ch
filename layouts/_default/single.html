@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <div class="mb-12 sm:mb-24">
+    <h1 class="mb-1 h1">
+      <a href="{{ .RelPermalink }}">
+        {{ .Title }}
+      </a>
+    </h1>
+    <div class="markdown">
+      {{ .Content }}
+    </div>
+    {{ partial "translations.html" . }}
+  </div>
+{{ end }}

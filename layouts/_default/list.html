@@ -1,0 +1,34 @@
+{{ define "main" }}
+
+  {{ $paginator := .Paginate (where $.Site.RegularPages "Section" "posts") }}
+  <div class="border-gray-100 divide-y">
+  {{ range $paginator.Pages }}
+    <article class="mb-4">
+      {{ partial "post-header.html" . }}
+      <section class="markdown">
+        {{ if .Truncated }}
+          {{ .Summary }}
+          <p>
+            <a href="{{ .RelPermalink }}">
+              Read more
+            </a>
+          </p>
+        {{ else if .Params.summary }}
+          {{ .Params.summary | markdownify }}
+          <p>
+            <a href="{{ .RelPermalink }}">
+              Read more
+            </a>
+          </p>
+        {{ else }}
+          {{ .Content }}
+        {{ end }}
+      </section>
+    </article>
+  {{ end }}
+  </div>
+
+  {{ template "_internal/pagination.html" . }}
+  {{ $style := resources.Get "css/syntax.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ end }}

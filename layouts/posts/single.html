@@ -1,0 +1,29 @@
+{{ define "main" }}
+<article class="mb-12 sm:mb-24">
+  {{ partial "post-header.html" . }}
+  {{ partial "translations.html" . }}
+  <section>
+    {{ if .Truncated }}
+      <div class="markdown">
+        {{ .Summary }}
+      </div>
+      <div class="markdown">
+        {{ safeHTML (replace .Content .Summary "") }}
+      </div>
+    {{ else }}
+      <div class="markdown">
+        {{ .Content }}
+      </div>
+    {{ end }}
+  </section>
+  {{ if .Params.series }}
+    {{ with index $.Site.Data.series .Params.series }}
+      <div id="series" class="pt-8">
+        {{ partial "series.html" (dict "series" . "currentSlug" $.Page.Slug) }}
+      </div>
+    {{ end }}
+  {{ end }}
+</article>
+{{ $style := resources.Get "css/syntax.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ end }}

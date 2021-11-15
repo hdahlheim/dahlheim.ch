@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en{{ end }}">
+    {{- partial "head.html" . -}}
+    <body class="font-sans">
+        {{- partial "header.html" . -}}
+        <main class="max-w-2xl mx-4 md:w-full sm:mx-auto">
+        {{- block "main" . }}{{- end }}
+        </main>
+    </body>
+</html>

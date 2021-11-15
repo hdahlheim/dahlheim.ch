@@ -1,0 +1,10 @@
+{{ if .IsTranslated }}
+<small class="inline-block mt-12 text-sm font-normal text-gray-600">
+  <p>
+    {{ i18n "translations" }}
+    {{ range .Translations }}
+      <a class="underline" href="{{ .Permalink }}">{{ .Language.LanguageName }}{{ if .IsPage }}{{ end }}</a>&nbsp;
+    {{ end }}
+  </p>
+</small>
+{{ end }}

@@ -1,0 +1,67 @@
+defaultContentLanguage: de
+title: "Henning Dahlheim"
+
+
+languages:
+  de:
+    weight: 1
+    LanguageName: "German"
+    menu:
+      main:
+        # - url: /slides/
+        #   name: Präsentationen
+        #   weight: 1
+        - url: /arbeit/
+          name: Arbeit
+          weight: 2
+  #       - url: "/posts/"
+  #         name: "Artikel"
+  #         weight: 1
+  #       - url: "/about/"
+  #         name: "Über mich"
+  #         weight: 2
+  #       - url: "/uses/"
+  #         name: "Werkzeuge"
+  #         weight: 3
+      social:
+      - url: https://github.com/hdahlheim
+        name: Github
+        weight: 1
+      - url: https://twitter.com/hactar_
+        name: twitter
+        weight: 2
+
+  en:
+    weight: 1
+    LanguageName: "Englisch"
+    menu:
+    #   main:
+    #     - url: "/posts/"
+    #       name: "Blog"
+    #       weight: 1
+    #     - url: "/about/"
+    #       name: "About"
+    #       weight: 2
+    #     - url: "/uses/"
+    #       name: "My Tools"
+    #       weight: 3
+    #   contact:
+    #     - url: "https://github.com/hdahlheim"
+    #       name: "Github"
+    #       weight: 1
+    #     - url: "https://twitter.com/hactar_"
+    #       name: "Twitter"
+    #       weight: 2
+      social:
+      - url: https://github.com/hdahlheim
+        name: Github
+        weight: 1
+      - url: https://twitter.com/hactar_
+        name: twitter
+        weight: 2
+
+
+pygmentsCodefences: true
+pygmentsStyle: "api"
+pygmentsUseClasses: true
+pygmentsCodefencesGuessSyntax: true

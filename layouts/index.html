@@ -1,0 +1,35 @@
+<!DOCTYPE html >
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}de{{ end }}">
+  {{- partial "head.html" . -}}
+  <body class="font-sans">
+    <main class="container grid items-center h-screen px-6 mx-auto">
+      <div class="space-y-6">
+        <h1 class="text-4xl font-bold sm:text-5xl">
+          {{ .Title }}
+        </h1>
+        <div class="text-lg font-medium markdown">
+          {{- .Content -}}
+        </div>
+        <nav class="mt-4 text-lg font-semibold text-gray-900">
+          <ul class="sm:space-x-4 sm:flex">
+          {{- range .Site.Menus.main -}}
+            <li class="hover:text-highlight">
+              <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+            </li>
+          {{- end -}}
+          {{- range .Site.Menus.social -}}
+            <li class="hover:text-highlight">
+              <a href="{{ .URL }}" rel="me" target="_blank">{{ .Name }}</a>
+            </li>
+          {{- end -}}
+          </ul>
+        </nav>
+        <div>
+        {{ range first 10 .Site.RegularPages }}
+            {{ .Render "summary"}}
+        {{ end }}
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
