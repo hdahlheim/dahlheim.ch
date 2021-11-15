@@ -1,11 +1,12 @@
 defaultContentLanguage: de
-title: "Henning Dahlheim"
+title: Henning Dahlheim
+baseURL: dahlheim.ch
 
 
 languages:
   de:
     weight: 1
-    LanguageName: "German"
+    LanguageName: German
     menu:
       main:
         # - url: /slides/
@@ -25,7 +26,7 @@ languages:
   #         weight: 3
       social:
       - url: https://github.com/hdahlheim
-        name: Github
+        name: GitHub
         weight: 1
       - url: https://twitter.com/hactar_
         name: twitter
@@ -33,11 +34,11 @@ languages:
 
   en:
     weight: 1
-    LanguageName: "Englisch"
+    LanguageName: Englisch
     menu:
       main:
         - url: /work/
-          name: Blog
+          name: Work
           weight: 1
     #     - url: "/posts/"
     #       name: "Blog"
@@ -50,7 +51,7 @@ languages:
     #       weight: 3
       social:
       - url: https://github.com/hdahlheim
-        name: Github
+        name: GitHub
         weight: 1
       - url: https://twitter.com/hactar_
         name: twitter
