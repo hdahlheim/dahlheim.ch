@@ -1,20 +1,9 @@
 {{ define "main" }}
-<article class="mb-12 sm:mb-24">
-  {{ partial "post-header.html" . }}
+<article class="max-w-2xl mb-12 sm:mb-24">
+  {{ partial "project-header.html" . }}
   {{ partial "translations.html" . }}
-  <section>
-    {{ if .Truncated }}
-      <div class="markdown">
-        {{ .Summary }}
-      </div>
-      <div class="markdown">
-        {{ safeHTML (replace .Content .Summary "") }}
-      </div>
-    {{ else }}
-      <div class="markdown">
-        {{ .Content }}
-      </div>
-    {{ end }}
+  <section class="markdown">
+    {{ .Content }}
   </section>
   {{ if .Params.series }}
     {{ with index $.Site.Data.series .Params.series }}

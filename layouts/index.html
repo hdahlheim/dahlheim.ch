@@ -1,35 +1,52 @@
-<!DOCTYPE html >
-<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}de{{ end }}">
-  {{- partial "head.html" . -}}
-  <body class="font-sans">
-    <main class="container grid items-center h-screen px-6 mx-auto">
-      <div class="space-y-6">
-        <h1 class="text-4xl font-bold sm:text-5xl">
-          {{ .Title }}
-        </h1>
-        <div class="text-lg font-medium markdown text-highlight">
-          {{- .Content -}}
-        </div>
-        <nav class="mt-4 text-lg font-semibold text-gray-900">
-          <ul class="sm:space-x-4 sm:flex">
-          {{- range .Site.Menus.main -}}
-            <li class="hover:text-highlight">
-              <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
-            </li>
-          {{- end -}}
-          {{- range .Site.Menus.social -}}
-            <li class="hover:text-highlight">
-              <a href="{{ .URL }}" rel="me" target="_blank">{{ .Name }}</a>
-            </li>
-          {{- end -}}
-          </ul>
-        </nav>
-        <div>
-        {{ range first 10 .Site.RegularPages }}
-            {{ .Render "summary"}}
-        {{ end }}
-        </div>
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en{{ end }}">
+{{- partial "head.html" . -}}
+
+<body class="font-sans text-slate-900 bg-slate-50">
+  <main class="max-w-5xl px-6 mx-auto mt-20 sm:px-12 md:mt-40 lg:px-0">
+    <section class="max-w-prose">
+      <h1 class="text-3xl font-medium text-slate-800">
+        {{ .Title }}
+      </h1>
+      <div class="mt-6 prose prose-lg">
+        {{- .Content -}}
       </div>
-    </main>
-  </body>
+    </section>
+    <section class="mt-8">
+      <h2 class="font-medium text-slate-500">Socials</h2>
+      <nav class="mt-2 space-x-4">
+        {{- range .Site.Menus.social -}}
+        <a class="underline text-slate-500 hover:text-red-500 underline-offset-2" href="{{ .URL }}" rel="me">{{ .Name }} <span aria-hidden="true">&#x2197;</span></a>
+        {{- end -}}
+      </nav>
+    </section>
+    <section class="mt-8 space-y-8">
+      {{ with .Site.GetPage "/blog" }}
+      <div>
+        <h2 class="font-medium text-slate-500">{{i18n "articles"}}</h2>
+        <ul class="mt-4 text-slate-700">
+          {{ range first 10  (where .Site.RegularPages "Section" "blog") }}
+          <li>
+            <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+      {{ with .Site.GetPage "/projects" }}
+      <div>
+        <h2 class="font-medium text-slate-500">{{i18n "projects"}}</h2>
+        <ul class="mt-4 text-slate-700">
+          {{ range first 10  (where .Site.RegularPages "Section" "projects") }}
+          <li>
+            <a class="underline underline-offset-2" href="{{.Permalink}}">{{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </section>
+  </main>
+</body>
+
 </html>

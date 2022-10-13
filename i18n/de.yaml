@@ -1,2 +1,14 @@
 - id: "translations"
-  translation: "Diese Seite is auch in anderen sprachen verfügbar:"
+  translation: "Diese Seite gibt es auch auf:"
+
+- id: "articles"
+  translation: "Beiträge"
+
+- id: "projects"
+  translation: "Projekte"
+
+- id: "project-year"
+  translation: "Jahr"
+
+- id: "project-lang"
+  translation: "Programmiersprache"

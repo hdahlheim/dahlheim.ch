@@ -1,2 +1,8 @@
 - id: "translations"
-  translation: "This page is also available in other languages:"
+  translation: "This page is also available in:"
+
+- id: "articles"
+  translation: "Articles"
+
+- id: "projects"
+  translation: "Projects"

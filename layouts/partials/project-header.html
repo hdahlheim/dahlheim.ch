@@ -1,0 +1,36 @@
+{{ $project := . }}
+<header>
+  <h1 class="mb-2 text-lg font-medium before:content-['#']">
+    <a href="{{ .RelPermalink }}">
+      {{ $project.Title }}
+    </a>
+  </h1>
+  <dl class="mb-4 text-sm text-slate-500">
+    <div>
+      <dt class="inline-block">{{i18n "project-year"}}:</dt>
+      <dd class="inline-block">
+        <time datetime="{{ $project.Date.Format "2006" }}">
+          {{ $project.Date.Format "2006" }}
+        </time>
+      </dd>
+    </div>
+    {{if $project.Params.project_lang }}
+    <div>
+      <dt class="inline-block">{{i18n "project-lang"}}:</dt>
+      <dd class="inline-block">
+        {{ $project.Params.project_lang }}
+      </dd>
+    </div>
+    {{end}}
+      {{ if $project.Params.series }}
+        {{ with $series := index $.Site.Data.series $project.Params.series }}
+          | {{ $series.title }}
+          {{ range $index, $p := $series.projects }}
+            {{ if eq $p.slug $project.Params.slug }}
+              {{ add $index 1 }}/{{ len $series.projects }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+  </dl>
+</header>

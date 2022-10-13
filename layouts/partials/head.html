@@ -11,5 +11,6 @@
   {{- with resources.Get "/css/styles.css" | minify -}}
     <style>{{- .Content | safeCSS -}}</style>
   {{- end -}}
-  <link rel="prefetch" href="https://rsms.me/inter/inter.css" prefetch>
+  <!-- <link rel="preconnect" href="https://rsms.me/">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css"> -->
 </head>

@@ -1,7 +1,6 @@
-defaultContentLanguage: de
+defaultContentLanguage: en
 title: Henning Dahlheim
 baseURL: https://dahlheim.ch
-
 
 languages:
   de:
@@ -9,21 +8,9 @@ languages:
     LanguageName: German
     menu:
       main:
-        # - url: /slides/
-        #   name: Präsentationen
-        #   weight: 1
-        - url: /arbeit/
-          name: Arbeit
-          weight: 2
-  #       - url: "/posts/"
-  #         name: "Artikel"
-  #         weight: 1
-  #       - url: "/about/"
-  #         name: "Über mich"
-  #         weight: 2
-  #       - url: "/uses/"
-  #         name: "Werkzeuge"
-  #         weight: 3
+        - url: "/posts/"
+          name: "Beiträge"
+          weight: 1
       social:
       - url: https://github.com/hdahlheim
         name: GitHub
@@ -32,24 +19,19 @@ languages:
         name: twitter
         weight: 2
     params:
-      description: Ich bin ein Fullstack Entwickler aus Basel
+      description: Henning Dahlheim, Software Entwickler aus Basel
   en:
     weight: 1
     LanguageName: Englisch
     menu:
       main:
-        - url: /work/
-          name: Work
+        - url: "/blog/"
+          name: "Articles"
           weight: 1
-    #     - url: "/posts/"
-    #       name: "Blog"
-    #       weight: 1
-    #     - url: "/about/"
-    #       name: "About"
-    #       weight: 2
-    #     - url: "/uses/"
-    #       name: "My Tools"
-    #       weight: 3
+      uses:
+        - url: '/uses/'
+          name: "Things I use"
+          weight: 5
       social:
       - url: https://github.com/hdahlheim
         name: GitHub

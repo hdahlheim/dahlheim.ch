@@ -1,11 +1,11 @@
 {{ $post := . }}
 <header>
-  <h1 class="mb-1 h1 hover:text-highlight">
+  <h1 class="mb-2 text-4xl font-semibold">
     <a href="{{ .RelPermalink }}">
       {{ $post.Title }}
     </a>
   </h1>
-  <p class="mb-8 text-sm text-gray-700">
+  <p class="mb-4 text-slate-500">
       <a href="{{ $post.RelPermalink }}">
         <time datetime="{{ $post.Date.Format "2006-01-02" }}">
           {{ $post.Date.Format "January 2, 2006" }}

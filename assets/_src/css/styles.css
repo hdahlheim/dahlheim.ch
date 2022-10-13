@@ -3,10 +3,8 @@
 @tailwind components;
 
 .markdown {
+  @apply text-slate-800;
   @apply text-lg;
-  @apply text-gray-900;
-  @apply leading-normal;
-  @apply font-medium;
 }
 
 .markdown > * + *,  .markdown li + li, .markdown li > p + p {
@@ -14,7 +12,7 @@
 }
 
 .markdown strong {
-  @apply text-gray-900;
+  @apply text-slate-800;
   @apply font-bold;
 }
 
@@ -23,7 +21,7 @@
 }
 
 .markdown a:hover {
-  @apply text-highlight;
+  @apply text-red-600;
 }
 
 .markdown strong a {
@@ -32,33 +30,39 @@
 
 .h1, .markdown h1 {
   @apply leading-tight;
-  @apply text-3xl;
-  @apply font-bold;
-  @apply text-gray-900;
+  @apply text-5xl;
+  @apply font-semibold;
+  @apply text-slate-700;
   @apply mb-2;
   @apply mt-10;
-}
-
-.h1 > a, .markdown h1 > a {
-  @apply border-b-2 border-highlight
 }
 
 .h2, .markdown h2 {
   @apply leading-tight;
-  @apply text-2xl;
-  @apply font-bold;
-  @apply text-gray-900;
+  @apply text-3xl;
+  @apply font-medium;
+  @apply text-slate-500;
   @apply mb-2;
   @apply mt-10;
+}
+
+.h2, .markdown h2::before {
+  content: "## ";
+  @apply text-slate-300;
 }
 
 .h3, .markdown h3 {
   @apply leading-tight;
   @apply text-xl;
-  @apply font-bold;
-  @apply text-gray-900;
+  @apply font-medium;
+  @apply text-slate-800;
   @apply mt-8;
   @apply -mb-2;
+}
+
+.h3, .markdown h3::before {
+  content: "### ";
+  @apply text-slate-300;
 }
 
 .markdown code {
@@ -74,13 +78,13 @@
 }
 .markdown pre code {
   @apply block;
-  @apply bg-gray-900;
+  @apply bg-slate-800;
   @apply p-4;
 }
 
 .markdown blockquote {
   @apply border-l-4;
-  @apply border-gray-300;
+  @apply border-slate-300;
   @apply pl-4;
   @apply italic;
 }

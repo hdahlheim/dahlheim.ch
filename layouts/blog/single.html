@@ -1,0 +1,18 @@
+{{ define "main" }}
+<article class="mt-12 mb-12 sm:mb-24">
+  {{ partial "post-header.html" . }}
+  {{ partial "translations.html" . }}
+  <section class="prose prose-lg prose-slate">
+    {{ .Content }}
+  </section>
+  {{ if .Params.series }}
+    {{ with index $.Site.Data.series .Params.series }}
+      <div id="series" class="pt-8">
+        {{ partial "series.html" (dict "series" . "currentSlug" $.Page.Slug) }}
+      </div>
+    {{ end }}
+  {{ end }}
+</article>
+{{ $style := resources.Get "css/syntax.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ end }}
