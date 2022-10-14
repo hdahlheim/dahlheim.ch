@@ -6,3 +6,9 @@
 
 - id: "projects"
   translation: "Projects"
+
+- id: project-year
+  translation: Year
+
+- id: project-lang
+  translation: Programming language

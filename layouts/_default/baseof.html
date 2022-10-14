@@ -2,7 +2,7 @@
 <html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en{{ end }}">
 {{- partial "head.html" . -}}
 
-<body class="font-sans text-slate-900 bg-slate-50">
+<body class="font-sans text-slate-900">
   {{- partial "header.html" . -}}
   <main class="max-w-4xl px-6 mx-auto space-y-8 sm:px-12 lg:px-0">
     {{ block "main" . }}{{- end -}}

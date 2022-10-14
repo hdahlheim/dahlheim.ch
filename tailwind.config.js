@@ -3,6 +3,11 @@ module.exports = {
   content: ['./{layouts,content}/**/*.html'],
   theme: {
     extend: {
+      colors: {
+        highlight: {
+          DEFAULT: '#FA211F',
+        },
+      },
       fontFamily: {
         sans: [
           'Work Sans',

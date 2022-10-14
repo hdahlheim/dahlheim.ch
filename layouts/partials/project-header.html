@@ -1,12 +1,12 @@
 {{ $project := . }}
-<header>
-  <h1 class="mb-2 text-lg font-medium before:content-['#']">
+<header class="mt-5">
+  <h1 class="mb-5 text-4xl font-bold before:content-['#'] before:text-highlight">
     <a href="{{ .RelPermalink }}">
       {{ $project.Title }}
     </a>
   </h1>
-  <dl class="mb-4 text-sm text-slate-500">
-    <div>
+  <dl class="mb-8 text-slate-800">
+    <div class="before:content-['#'] before:text-highlight">
       <dt class="inline-block">{{i18n "project-year"}}:</dt>
       <dd class="inline-block">
         <time datetime="{{ $project.Date.Format "2006" }}">
@@ -15,7 +15,7 @@
       </dd>
     </div>
     {{if $project.Params.project_lang }}
-    <div>
+    <div class="before:content-['#'] before:text-highlight">
       <dt class="inline-block">{{i18n "project-lang"}}:</dt>
       <dd class="inline-block">
         {{ $project.Params.project_lang }}
