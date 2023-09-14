@@ -1,9 +1,9 @@
 {{ if .IsTranslated }}
-<small class="block mb-4 text-xs font-normal text-slate-400">
+<small class="block mb-2 text-xs font-normal text-slate-400">
   <p class="leading-relaxed">
     {{ i18n "translations" }}
     {{ range .Translations }}
-      <a class="underline hover:text-highlight" href="{{ .Permalink }}">{{ .Language.LanguageName }}{{ if .IsPage }}{{ end }}</a>&nbsp;
+      <a class="underline hover:text-red-500" href="{{ .Permalink }}">{{ .Language.LanguageName }}{{ if .IsPage }}{{ end }}</a>&nbsp;
     {{ end }}
   </p>
 </small>

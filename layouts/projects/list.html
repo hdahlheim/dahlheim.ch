@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <h1 class="text-lg font-semibold">{{.Title}}</h1>
+  {{ $paginator := .Paginate (where $.Site.RegularPages "Section" "projects") }}
+  <ul class="grid grid-cols-3">
+  {{ range $paginator.Pages }}
+    <li aria-labelledby="{{ .Title | anchorize }}_{{ .Date.Format "2006-01-02" }}" class="px-6 py-4 border rounded hover:shadow">
+      <h2 id="{{ .Title | anchorize }}_{{ .Date.Format "2006-01-02" }}" class="text-lg font-semibold hover:text-red-500">
+        <a href="{{.RelPermalink}}">{{.Title}}</a>
+      </h2>
+      {{ partial "project-meta.html" . }}
+      {{if .Params.summary}}
+      <p class="text-sm italic">{{.Params.summary}}</p>
+      {{end}}
+    </li>
+  {{ end }}
+  </ul>
+  {{ template "_internal/pagination.html" . }}
+  {{ $style := resources.Get "css/syntax.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ end }}

@@ -2,50 +2,50 @@
 <html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en{{ end }}">
 {{- partial "head.html" . -}}
 
-<body class="font-sans text-slate-900">
-  <main class="max-w-5xl px-6 mx-auto mt-20 sm:px-12 md:mt-40 lg:px-0">
-    <section class="max-w-prose">
-      <h1 class="text-5xl font-bold text-highlight">
+<body class="min-h-screen font-sans text-slate-900">
+  <main class="relative px-6 mx-auto mt-20 max-w-7xl sm:px-12 md:mt-40 lg:px-0">
+    <section aria-labelledby="title" class="col-span-3 max-w-prose">
+      <h1 id="title" class="text-5xl font-bold text-highlight">
         {{ .Title }}
       </h1>
       <div class="mt-6 prose prose-lg">
         {{- .Content -}}
       </div>
     </section>
-    <section class="mt-8">
-      <h2 class="font-medium text-slate-500">Socials</h2>
+    <section aria-labelledby="socials" class="mt-8">
+      <h2 id="socials" class="font-medium text-slate-500">Socials</h2>
       <nav class="mt-2 space-x-4">
         {{- range .Site.Menus.social -}}
-        <a class="underline text-slate-500 hover:text-red-500 underline-offset-2" href="{{ .URL }}" rel="me">{{ .Name }} <span aria-hidden="true">&#x2197;</span></a>
+        <a class="underline text-slate-500 hover:text-red-500 underline-offset-2" href="{{ .URL }}" rel="me">
+          {{ .Name }} <span aria-hidden="true">&#x2197;</span>
+        </a>
         {{- end -}}
       </nav>
     </section>
-    <section class="mt-8 space-y-8">
-      {{ with .Site.GetPage "/blog" }}
-      <div>
-        <h2 class="font-medium text-slate-500">{{i18n "articles"}}</h2>
-        <ul class="mt-4 text-slate-700">
-          {{ range first 10  (where .Site.RegularPages "Section" "blog") }}
-          <li>
-            <a href="{{.Permalink}}">{{.Date.Format "2006-01-02"}} | {{ .Title }}</a>
-          </li>
-          {{ end }}
-        </ul>
-      </div>
-      {{ end }}
-      {{ with .Site.GetPage "/projects" }}
-      <div>
-        <h2 class="font-medium text-slate-500">{{i18n "projects"}}</h2>
-        <ul class="mt-4 text-slate-700">
-          {{ range first 10  (where .Site.RegularPages "Section" "projects") }}
-          <li>
-            <a class="underline underline-offset-2" href="{{.Permalink}}">{{ .Title }}</a>
-          </li>
-          {{ end }}
-        </ul>
-      </div>
-      {{ end }}
+    {{ with .Site.GetPage "/blog" }}
+    <section aria-labelledby="articles" class="mt-8">
+      <h2 id="articles" class="font-medium text-slate-500">{{i18n "articles"}}</h2>
+      <ul class="mt-4 text-slate-700">
+        {{ range first 10  (where .Site.RegularPages "Section" "blog") }}
+        <li>
+          <a class="hover:text-red-500" href="{{.Permalink}}"><span class="tabular-nums">[{{.Date.Format "2006-01-02"}}]</span> &mdash; {{ .Title }}</a>
+        </li>
+        {{ end }}
+      </ul>
     </section>
+    {{ end }}
+    {{ with .Site.GetPage "/projects" }}
+    <section aria-labelledby="projects" class="mt-8">
+      <h2 id="projects" class="font-medium text-slate-500">{{i18n "projects"}}</h2>
+      <ul class="mt-4 text-slate-700">
+        {{ range first 10  (where .Site.RegularPages "Section" "projects") }}
+        <li>
+          <a class="underline hover:text-red-500 underline-offset-2" href="{{.Permalink}}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+      </ul>
+    </section>
+    {{ end }}
   </main>
 </body>
 

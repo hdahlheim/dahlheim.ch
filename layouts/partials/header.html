@@ -1,18 +1,16 @@
 <header class="max-w-4xl px-6 py-4 mx-auto mt-10 sm:px-12 lg:px-0">
   <div>
-    <nav>
-      <a class="text-3xl font-medium text-slate-800" href="{{ "/" | absLangURL }}">
+    <nav class="items-center justify-between md:flex">
+      <a class="text-lg font-semibold text-highlight" href="{{ "/" | absLangURL }}">
         {{ .Site.Title }}
       </a>
-    </nav>
-    <nav>
-      <ul class="mt-4 font-medium sm:space-x-6 sm:flex">
+      <ul class="font-medium sm:space-x-6 sm:flex">
         {{- $currentPage := . -}}
         {{- range .Site.Menus.main -}}
         <li class="{{ if $currentPage.IsMenuCurrent "main" . }}text-slate-700{{else}}text-slate-500{{end}} hover:text-slate-700 underline underline-offset-2">
-          <a href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+          <a class="hover:text-red-500" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
         </li>
-        {{- end -}}
+        {{end}}
       </ul>
     </nav>
   </div>

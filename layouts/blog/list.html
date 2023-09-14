@@ -1,10 +1,17 @@
 {{ define "main" }}
   {{ $paginator := .Paginate (where $.Site.RegularPages "Section" "blog") }}
-  <div class="mt-12 mb-12 border-gray-100 divide-y">
+  <div class="divide-y border-slate-50 divide-dotted">
   {{ range $paginator.Pages }}
-    <article class="mb-4">
-      {{ partial "post-header.html" . }}
-      <section class="prose prose-lg prose-slate">
+    <article aria-labelledby="{{ .Title | anchorize }}_{{ .Date.Format "2006-01-02" }}" class="pt-4 pb-4 first:pt-0">
+      <h2 id="{{ .Title | anchorize }}_{{ .Date.Format "2006-01-02" }}" class="mb-2 text-2xl font-semibold">
+        <a href="{{ .RelPermalink }}">
+          {{ .Title }}
+        </a>
+      </h2>
+      <p class="mb-4 text-slate-500">
+        {{ .Date.Format "January 2, 2006" }}
+      </p>
+      <section class="max-w-full prose prose-slate">
         {{ if .Truncated }}
           {{ .Summary }}
           <p class="mt-3 not-prose">

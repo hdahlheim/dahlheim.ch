@@ -1365,6 +1365,26 @@ video {
   --tw-prose-invert-td-borders: #334155;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.relative {
+  position: relative;
+}
+
+.col-span-3 {
+  grid-column: span 3 / span 3;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1438,12 +1458,20 @@ video {
   display: flex;
 }
 
+.grid {
+  display: grid;
+}
+
 .h-screen {
   height: 100vh;
 }
 
-.max-w-5xl {
-  max-width: 64rem;
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
 }
 
 .max-w-prose {
@@ -1458,12 +1486,24 @@ video {
   max-width: 42rem;
 }
 
+.max-w-full {
+  max-width: 100%;
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .items-center {
   align-items: center;
 }
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -1484,9 +1524,30 @@ video {
   border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
 }
 
+.divide-dotted > :not([hidden]) ~ :not([hidden]) {
+  border-style: dotted;
+}
+
+.divide-double > :not([hidden]) ~ :not([hidden]) {
+  border-style: double;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
 .border-gray-100 {
   --tw-border-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-border-opacity));
+}
+
+.border-slate-50 {
+  --tw-border-opacity: 1;
+  border-color: rgb(248 250 252 / var(--tw-border-opacity));
 }
 
 .px-6 {
@@ -1494,13 +1555,36 @@ video {
   padding-right: 1.5rem;
 }
 
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
+.pt-4 {
+  padding-top: 1rem;
 }
 
 .text-center {
@@ -1526,9 +1610,14 @@ video {
   line-height: 1;
 }
 
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-4xl {
@@ -1539,6 +1628,11 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .font-semibold {
@@ -1555,6 +1649,15 @@ video {
 
 .font-normal {
   font-weight: 400;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.tabular-nums {
+  --tw-numeric-spacing: tabular-nums;
+  font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
 }
 
 .leading-relaxed {
@@ -1591,6 +1694,26 @@ video {
   color: rgb(148 163 184 / var(--tw-text-opacity));
 }
 
+.text-red-700 {
+  --tw-text-opacity: 1;
+  color: rgb(185 28 28 / var(--tw-text-opacity));
+}
+
+.text-red-300 {
+  --tw-text-opacity: 1;
+  color: rgb(252 165 165 / var(--tw-text-opacity));
+}
+
+.text-red-400 {
+  --tw-text-opacity: 1;
+  color: rgb(248 113 113 / var(--tw-text-opacity));
+}
+
+.text-red-800 {
+  --tw-text-opacity: 1;
+  color: rgb(153 27 27 / var(--tw-text-opacity));
+}
+
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -1600,30 +1723,12 @@ video {
   text-underline-offset: 2px;
 }
 
-.before\:block::before {
-  content: var(--tw-content);
-  display: block;
+.first\:pb-0:first-child {
+  padding-bottom: 0px;
 }
 
-.before\:inline-block::before {
-  content: var(--tw-content);
-  display: inline-block;
-}
-
-.before\:text-highlight::before {
-  content: var(--tw-content);
-  --tw-text-opacity: 1;
-  color: rgb(250 33 31 / var(--tw-text-opacity));
-}
-
-.before\:content-\[\#\]::before {
-  --tw-content: #;
-  content: var(--tw-content);
-}
-
-.before\:content-\[\'\#\'\]::before {
-  --tw-content: '#';
-  content: var(--tw-content);
+.first\:pt-0:first-child {
+  padding-top: 0px;
 }
 
 .hover\:text-red-500:hover {
@@ -1641,36 +1746,28 @@ video {
   color: rgb(250 33 31 / var(--tw-text-opacity));
 }
 
-.prose-h1\:before\:text-highlight :is(:where(h1):not(:where([class~="not-prose"] *)))::before {
-  content: var(--tw-content);
+.hover\:shadow:hover {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.prose-a\:hover\:text-red-500:hover :is(:where(a):not(:where([class~="not-prose"] *))) {
   --tw-text-opacity: 1;
-  color: rgb(250 33 31 / var(--tw-text-opacity));
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
-.prose-h1\:before\:content-\[\'\#\'\] :is(:where(h1):not(:where([class~="not-prose"] *)))::before {
-  --tw-content: '#';
-  content: var(--tw-content);
-}
-
-.prose-h2\:before\:mr-1 :is(:where(h2):not(:where([class~="not-prose"] *)))::before {
-  content: var(--tw-content);
-  margin-right: 0.25rem;
-}
-
-.prose-h2\:before\:mr-2 :is(:where(h2):not(:where([class~="not-prose"] *)))::before {
-  content: var(--tw-content);
-  margin-right: 0.5rem;
-}
-
-.prose-h2\:before\:text-highlight :is(:where(h2):not(:where([class~="not-prose"] *)))::before {
-  content: var(--tw-content);
+.hover\:prose-a\:text-red-500 :is(:where(a):not(:where([class~="not-prose"] *))):hover {
   --tw-text-opacity: 1;
-  color: rgb(250 33 31 / var(--tw-text-opacity));
+  color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
-.prose-h2\:before\:content-\[\'\#\#\'\] :is(:where(h2):not(:where([class~="not-prose"] *)))::before {
-  --tw-content: '##';
-  content: var(--tw-content);
+.prose-table\:min-w-full :is(:where(table):not(:where([class~="not-prose"] *))) {
+  min-width: 100%;
+}
+
+.prose-table\:overflow-x-scroll :is(:where(table):not(:where([class~="not-prose"] *))) {
+  overflow-x: scroll;
 }
 
 @media (min-width: 640px) {
@@ -1697,6 +1794,10 @@ video {
 @media (min-width: 768px) {
   .md\:mt-40 {
     margin-top: 10rem;
+  }
+
+  .md\:flex {
+    display: flex;
   }
 }
 

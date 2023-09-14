@@ -8,8 +8,11 @@ languages:
     LanguageName: German
     menu:
       main:
-        - url: "/posts/"
-          name: "Beiträge"
+        # - url: "/blog/"
+        #   name: "Blog"
+        #   weight: 1
+        - url: "/projects/"
+          name: "Projekte"
           weight: 1
       social:
       - url: https://github.com/hdahlheim
@@ -25,13 +28,12 @@ languages:
     LanguageName: Englisch
     menu:
       main:
-        - url: "/blog/"
-          name: "Articles"
+        # - url: "/blog/"
+        #   name: "Blog"
+        #   weight: 1
+        - url: "/projects/"
+          name: "Projects"
           weight: 1
-      uses:
-        - url: '/uses/'
-          name: "Things I use"
-          weight: 5
       social:
       - url: https://github.com/hdahlheim
         name: GitHub
@@ -43,6 +45,6 @@ languages:
       description: I’m a Software Developer based in Basel.
 
 pygmentsCodefences: true
-pygmentsStyle: "api"
+pygmentsStyle: "dracula"
 pygmentsUseClasses: true
 pygmentsCodefencesGuessSyntax: true

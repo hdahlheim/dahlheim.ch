@@ -1,8 +1,8 @@
 {{ define "main" }}
-<article class="max-w-2xl mb-12 sm:mb-24">
+<article aria-labelledby="{{.Title | anchorize}}" class="max-w-full mb-12 sm:mb-24">
   {{ partial "project-header.html" . }}
   {{ partial "translations.html" . }}
-  <section class="prose prose-lg">
+  <section class="max-w-full mt-4 prose prose-slate prose-table:overflow-x-scroll hover:prose-a:text-red-500 prose-table:min-w-full">
     {{ .Content }}
   </section>
   {{ if .Params.series }}

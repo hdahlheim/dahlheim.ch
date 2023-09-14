@@ -1,36 +1,20 @@
 {{ $project := . }}
-<header class="mt-5">
-  <h1 class="mb-5 text-4xl font-bold before:content-['#'] before:text-highlight">
-    <a href="{{ .RelPermalink }}">
+<header>
+  <h1 id="{{$project.Title | anchorize}}" class="mb-5 text-4xl font-bold">
+    <a href="{{ $project.RelPermalink }}">
       {{ $project.Title }}
     </a>
   </h1>
-  <dl class="mb-8 text-slate-800">
-    <div class="before:content-['#'] before:text-highlight">
-      <dt class="inline-block">{{i18n "project-year"}}:</dt>
-      <dd class="inline-block">
-        <time datetime="{{ $project.Date.Format "2006" }}">
-          {{ $project.Date.Format "2006" }}
-        </time>
-      </dd>
-    </div>
-    {{if $project.Params.project_lang }}
-    <div class="before:content-['#'] before:text-highlight">
-      <dt class="inline-block">{{i18n "project-lang"}}:</dt>
-      <dd class="inline-block">
-        {{ $project.Params.project_lang }}
-      </dd>
-    </div>
-    {{end}}
-      {{ if $project.Params.series }}
-        {{ with $series := index $.Site.Data.series $project.Params.series }}
-          | {{ $series.title }}
-          {{ range $index, $p := $series.projects }}
-            {{ if eq $p.slug $project.Params.slug }}
-              {{ add $index 1 }}/{{ len $series.projects }}
-            {{ end }}
+  <h2 class="sr-only">Project Metadata</h2>
+  {{ partial "project-meta.html" . }}
+    {{ if $project.Params.series }}
+      {{ with $series := index $.Site.Data.series $project.Params.series }}
+        | {{ $series.title }}
+        {{ range $index, $p := $series.projects }}
+          {{ if eq $p.slug $project.Params.slug }}
+            {{ add $index 1 }}/{{ len $series.projects }}
           {{ end }}
         {{ end }}
       {{ end }}
-  </dl>
+    {{ end }}
 </header>

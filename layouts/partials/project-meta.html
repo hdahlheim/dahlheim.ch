@@ -1,10 +1,8 @@
-<dl class="mb-4 text-slate-500">
+<dl class="mb-4 text-slate-700">
   <div>
     <dt class="inline-block">{{i18n "project-year"}}:</dt>
     <dd class="inline-block">
-      <time datetime="{{ $.Params.Date | time.Format "2006" }}">
-        {{ $.Params.Date | time.Format "2006" }}
-      </time>
+      {{ $.Params.Date | time.Format "2006" }}
     </dd>
   </div>
   {{if $.Params.project_lang }}
