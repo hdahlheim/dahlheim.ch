@@ -1,8 +1,9 @@
 ### Hugo ###
 # Generated files by hugo
-/public/
-/resources/_gen/
+public/
+resources/_gen/
 
+assets/css/styles.css
 
 
 # Created by https://www.gitignore.io/api/node
@@ -86,7 +87,7 @@ typings/
 # nuxt.js build output
 .nuxt
 
-# react / gatsby 
+# react / gatsby
 public/
 
 # vuepress build output
