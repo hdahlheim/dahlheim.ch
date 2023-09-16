@@ -36,7 +36,9 @@
     {{ end }}
     {{ with .Site.GetPage "/projects" }}
     <section aria-labelledby="projects" class="mt-8">
-      <h2 id="projects" class="font-medium text-slate-500">{{i18n "projects"}}</h2>
+      <h2 id="projects" class="font-medium text-slate-500">
+        {{i18n "projects"}}
+      </h2>
       <ul class="mt-4 text-slate-700">
         {{ range first 10  (where .Site.RegularPages "Section" "projects") }}
         <li>
