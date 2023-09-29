@@ -8,9 +8,9 @@ languages:
     LanguageName: German
     menu:
       main:
-        # - url: "/blog/"
-        #   name: "Blog"
-        #   weight: 1
+        - url: "/blog/"
+          name: "Blog"
+          weight: 1
         - url: "/projects/"
           name: "Projekte"
           weight: 1
@@ -28,9 +28,9 @@ languages:
     LanguageName: Englisch
     menu:
       main:
-        # - url: "/blog/"
-        #   name: "Blog"
-        #   weight: 1
+        - url: "/blog/"
+          name: "Blog"
+          weight: 1
         - url: "/projects/"
           name: "Projects"
           weight: 1

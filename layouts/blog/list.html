@@ -2,34 +2,19 @@
   {{ $paginator := .Paginate (where $.Site.RegularPages "Section" "blog") }}
   <div class="divide-y border-slate-50 divide-dotted">
   {{ range $paginator.Pages }}
-    <article aria-labelledby="{{ .Title | anchorize }}_{{ .Date.Format "2006-01-02" }}" class="pt-4 pb-4 first:pt-0">
-      <h2 id="{{ .Title | anchorize }}_{{ .Date.Format "2006-01-02" }}" class="mb-2 text-2xl font-semibold">
+    <article aria-labelledby="{{ .Title | anchorize }}" class="pt-4 pb-4 first:pt-0">
+      <h2 id="{{ .Title | anchorize }}" class="mb-2 text-2xl font-semibold">
         <a href="{{ .RelPermalink }}">
           {{ .Title }}
         </a>
       </h2>
-      <p class="mb-4 text-slate-500">
-        {{ .Date.Format "January 2, 2006" }}
-      </p>
-      <section class="max-w-full prose prose-slate">
-        {{ if .Truncated }}
-          {{ .Summary }}
-          <p class="mt-3 not-prose">
-            <a class="underline underline-offset-2" href="{{ .RelPermalink }}">
-              Read more
-            </a>
-          </p>
-        {{ else if .Params.summary }}
-          {{ .Params.summary | markdownify }}
-          <p class="mt-3 not-prose">
-            <a class="underline underline-offset-2" href="{{ .RelPermalink }}">
-              Read more
-            </a>
-          </p>
-        {{ else }}
-          {{ .Content }}
-        {{ end }}
-      </section>
+      <dl class="mb-4 text-slate-500">
+        <dt class="sr-only">Date</dt>
+        <dd>{{ .Date.Format "January 2, 2006" }}</dd>
+      </dl>
+      <a class="sr-only" href="{{ .RelPermalink }}">
+        Read the article
+      </a>
     </article>
   {{ end }}
   </div>
