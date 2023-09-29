@@ -17,6 +17,7 @@
           pkgs.nodejs_20
           pkgs.nodePackages.tailwindcss
           pkgs.nodePackages.pnpm
+          pkgs.ansible
         ];
       };
   });

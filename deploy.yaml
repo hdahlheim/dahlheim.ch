@@ -3,7 +3,7 @@
   hosts: localhost
   tasks:
   - name:
-    command: yarn build
+    command: pnpm build
     changed_when: true
   - name: Build Site
     command: hugo --gc

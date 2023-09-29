@@ -105,7 +105,7 @@ Know that we know that we can pass interger IDs to `:inet_res` we can start to c
 
 ## Querying DNSKEY records
 
-Now that we know that we can pass integers as query type instead of the atom, we can construct our new DNSKEY query, all that is missing is a quick lookup of the RR Type ID of the DNSKEY type, which is 48.
+Now that we know that we can pass integers as query type instead of the atom, we can construct our new DNSKEY query, all that is missing is a quick lookup of the RR type ID of the DNSKEY type, which is 48.
 
 Our new query will look like this:
 
