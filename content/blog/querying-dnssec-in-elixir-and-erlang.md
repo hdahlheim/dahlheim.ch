@@ -71,7 +71,7 @@ Fortunately you don't have to do either of those things. But let's first delve a
 
 ## Raw RR type IDs
 
-One undocumented feature of the `:inet_res` module is that it allows you to pass the integer id of the RR type directly instead of an atom.
+One undocumented feature of the `:inet_res` module is that it allows you to pass the integer ID of the RR type directly instead of an atom.
 For example in theory we could query the A record of the domain `dahlheim.ch` like this.
 
 ```elixir
@@ -100,8 +100,6 @@ That is a big improvement.
 {{< note >}}
 If you use `inet_res.lookup/3` or any of the other `inet_res.lookup` arity function, it will return an empty list because it uses `:inet_res.resolve/5` under the hood and expects an `{:ok, dns_rec}` tuple.
 {{< /note >}}
-
-Know that we know that we can pass interger IDs to `:inet_res` we can start to construct our new query for DNSKEY and DS records.
 
 ## Querying DNSKEY records
 
