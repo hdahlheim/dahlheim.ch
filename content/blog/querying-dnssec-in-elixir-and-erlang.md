@@ -8,12 +8,12 @@ At the beginning of this year I had to figure out how to work with DNS resource 
 
 ## Background
 
-Depending on who you ask, the need for DNSSEC might be a controversial topic but at least in Switzerland there is
-big push for adding DNSSEC to all .ch domains.
+Depending on who you ask, the need for DNSSEC might be a controversial topic, but at least in Switzerland,
+there is a big push for adding DNSSEC to all .ch domains.
 
-At work we built an Elixir service that coordinates the provisioning of the DNSKEYs for our customers on our nameservers and then sends those keys to the .ch registry.
+At work, we built an Elixir service that coordinates the provisioning of the DNSKEYs for our customers on our nameservers and then sends those keys to the .ch registry.
 
-Because of the diffrent ways DNSSEC can be provisioned our service needs to check for the presence of DNSSEC keys and DS records using DNS. At first we did the check using `dig` and `System.cmd/3` because of time constraints when we build the service.
+Because of the different ways DNSSEC can be provisioned, our service needs to check for the presence of DNSSEC keys and DS records using DNS. At first, we did the check using `dig` and `System.cmd/3` because of time constraints when we built the service.
 
 This worked at the time, but the fact that we had to shell out for just that bit always bothered me,
 so I did some digging to find out how we could do it all in Elixir.
@@ -63,16 +63,15 @@ iex(2)> :inet_res.resolve(~c"dahlheim.ch", :in, :dnskey)
     iex:33: (file)
 ```
 
-The function `inet_dns.encode_type/1` which is used internally by `:inet_res` does not know how to map the `:dnskey` atom to the corresponding integer in the RR type table. Some might give up right here and chose to use `System.cmd` and `dig`, because it just works, like we did when we first implemented our service.
+The function `inet_dns.encode_type/1`, which is used internally by `:inet_res`, does not know how to map the `:dnskey` atom to the corresponding integer in the RR type table. Some might give up right here and chose to use `System.cmd` and `dig` because it just works, like we did when we first implemented our service.
 
 Some might think, they have to implement their own DNS client using `gen_udp`.
 
-Well thankfully you don't have to do either of those things. But let's first dig a bit deeper into the behavior of the `:inet_res` module.
+Fortunately you don't have to do either of those things. But let's first delve a bit deeper into the behavior of the `:inet_res` module.
 
 ## Raw RR type IDs
 
-One undocumented feature of the `:inet_res` module is that it allows you to pass the integer id of the RR Type
-directly instead of an atom.
+One undocumented feature of the `:inet_res` module is that it allows you to pass the integer id of the RR type directly instead of an atom.
 For example in theory we could query the A record of the domain `dahlheim.ch` like this.
 
 ```elixir
