@@ -38,7 +38,7 @@ languages:
       - url: https://github.com/hdahlheim
         name: GitHub
         weight: 1
-      - url: https://twitter.com/hactar_
+      - url: https://twitter.com/hdahlheim_
         name: twitter
         weight: 2
     params:
