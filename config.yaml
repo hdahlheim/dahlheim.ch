@@ -15,12 +15,12 @@ languages:
           name: "Projekte"
           weight: 1
       social:
-      - url: https://github.com/hdahlheim
-        name: GitHub
-        weight: 1
-      - url: https://twitter.com/hactar_
-        name: twitter
-        weight: 2
+        - url: https://github.com/hdahlheim
+          name: GitHub
+          weight: 1
+        - url: https://bsky.app/profile/dahlheim.ch
+          name: bluesky
+          weight: 2
     params:
       description: Henning Dahlheim, Software Entwickler aus Basel
   en:
@@ -35,14 +35,19 @@ languages:
           name: "Projects"
           weight: 1
       social:
-      - url: https://github.com/hdahlheim
-        name: GitHub
-        weight: 1
-      - url: https://twitter.com/hdahlheim_
-        name: twitter
-        weight: 2
+        - url: https://github.com/hdahlheim
+          name: GitHub
+          weight: 1
+        - url: https://bsky.app/profile/dahlheim.ch
+          name: bluesky
+          weight: 2
     params:
       description: I’m a Software Developer based in Basel.
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 pygmentsCodefences: true
 pygmentsStyle: "dracula"
