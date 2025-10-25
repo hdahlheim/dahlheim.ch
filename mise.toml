@@ -1,9 +1,29 @@
 [tools]
 hugo = "latest"
+vale = "latest"
 "ubi:tailwindlabs/tailwindcss" = "latest"
+
+[env]
+DEPLOY_REMOTE_HOST = "dahlheim.ch"
+DEPLOY_LOCAL_SOURCE = "public"
+DEPLOY_TARGET_DIR = '~/public_html/dahlheim.ch'
+DEPLOY_KEEP_RELEASES = 3
+
+[tasks.dev]
+depends = ["watch", "serve"]
+
+[tasks.serve]
+run = "hugo server -D --disableFastRender"
 
 [tasks.watch]
 run = "tailwindcss -c ./tailwind.config.js -i ./assets/_src/css/styles.css -o ./assets/css/styles.css -w"
 
 [tasks.build]
-run = "tailwindcss -c ./tailwind.config.js -i ./assets/_src/css/styles.css -o ./assets/css/styles.css"
+run = """
+tailwindcss -c ./tailwind.config.js -i ./assets/_src/css/styles.css -o ./assets/css/styles.css
+hugo --gc
+"""
+
+[tasks.deploy]
+depends = ["build"]
+run = "./scripts/deploy.sh"
