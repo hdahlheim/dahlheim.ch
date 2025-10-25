@@ -1,6 +1,15 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
-@config '../../../tailwind.config.js';
+@theme {
+    --font-sans:
+        "Work Sans", "Inter", "system-ui", "-apple-system",
+        "BlinkMacSystemFont", '"Segoe UI"', "Roboto", '"Helvetica Neue"',
+        "Arial", '"Noto Sans"', "sans-serif", '"Apple Color Emoji"',
+        '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"';
+
+    --color-highlight: #fa211f;
+}
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -11,123 +20,119 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
 }
 
 @layer components {
-  .markdown {
-    @apply text-slate-800;
-    @apply text-lg;
-  }
+    .markdown {
+        color: var(--color-slate-800);
+        font-size: var(--text-lg);
+        line-height: var(--tw-leading, var(--text-lg--line-height));
+    }
 
-  .markdown > * + *,
-  .markdown li + li,
-  .markdown li > p + p {
-    @apply mt-2.5;
-  }
+    .markdown > * + *,
+    .markdown li + li,
+    .markdown li > p + p {
+        margin-top: calc(var(--spacing) * 2.5);
+    }
 
-  .markdown strong {
-    @apply text-slate-800;
-    @apply font-bold;
-  }
+    .markdown strong {
+        color: var(--color-slate-800);
+        font-weight: var(--font-weight-bold);
+    }
 
-  .markdown a {
-    @apply underline;
-  }
+    .markdown a {
+        text-decoration-line: underline;
+    }
 
-  .markdown a:hover {
-    @apply text-red-600;
-  }
+    .markdown a:hover {
+        color: var(--color-red-600);
+    }
 
-  .markdown strong a {
-    @apply font-bold;
-  }
+    .markdown strong a {
+        font-weight: var(--font-weight-bold);
+    }
 
-  .h1,
-  .markdown h1 {
-    @apply leading-tight;
-    @apply text-5xl;
-    @apply font-semibold;
-    @apply text-slate-700;
-    @apply mb-2;
-    @apply mt-10;
-  }
+    .h1,
+    .markdown h1 {
+        font-size: var(--text-5xl);
+        line-height: var(--leading-tight);
+        font-weight: var(--font-weight-semibold);
+        color: var(--color-slate-700);
+        margin-top: calc(var(--spacing) * 10);
+        margin-bottom: calc(var(--spacing) * 2);
+    }
 
-  .h2,
-  .markdown h2 {
-    @apply leading-tight;
-    @apply text-3xl;
-    @apply font-medium;
-    @apply text-slate-500;
-    @apply mb-2;
-    @apply mt-10;
-  }
+    .h2,
+    .markdown h2 {
+        font-size: var(--text-3xl);
+        line-height: var(--leading-tight);
+        font-weight: var(--font-weight-medium);
+        color: var(--color-slate-700);
+        margin-top: calc(var(--spacing) * 10);
+        margin-bottom: calc(var(--spacing) * 2);
+    }
 
-  .h2,
-  .markdown h2::before {
-    content: '## ';
-    @apply text-slate-300;
-  }
+    .h2,
+    .markdown h2::before {
+        content: "## ";
+        color: var(--color-slate-300);
+    }
 
-  .h3,
-  .markdown h3 {
-    @apply leading-tight;
-    @apply text-xl;
-    @apply font-medium;
-    @apply text-slate-800;
-    @apply mt-8;
-    @apply -mb-2;
-  }
+    .h3,
+    .markdown h3 {
+        font-size: var(--text-xl);
+        line-height: var(--leading-tight);
+        font-weight: var(--font-weight-medium);
+        color: var(--color-slate-800);
+        margin-top: calc(var(--spacing) * 8);
+        margin-bottom: calc(var(--spacing) * -2);
+    }
 
-  .h3,
-  .markdown h3::before {
-    content: '### ';
-    @apply text-slate-300;
-  }
+    .h3,
+    .markdown h3::before {
+        content: "### ";
+        color: var(--color-slate-300);
+    }
 
-  .markdown code {
-    @apply font-mono;
-    @apply text-sm;
-    @apply inline;
-    @apply px-1;
-  }
+    .markdown code {
+        font-family: var(--font-mono);
+        font-size: var(--text-sm);
+        display: inline;
+        padding-inline: calc(var(--spacing) * 1);
+    }
 
-  .markdown pre {
-    @apply rounded-sm;
-    @apply overflow-hidden;
-  }
-  .markdown pre code {
-    @apply block;
-    @apply bg-slate-800;
-    @apply p-4;
-  }
+    .markdown pre {
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+    }
+    .markdown pre code {
+        display: block;
+        background-color: var(--color-slate-800);
+        padding: calc(var(--spacing) * 4);
+    }
 
-  .markdown blockquote {
-    @apply border-l-4;
-    @apply border-slate-300;
-    @apply pl-4;
-    @apply italic;
-  }
+    .markdown blockquote {
+        border-left-style: var(--tw-border-style);
+        border-left-width: 4px;
+        border-color: var(--color-slate-300);
+        padding-left: calc(var(--spacing) * 4);
+        font-style: italic;
+    }
 
-  .markdown ul {
-    @apply list-disc;
-    @apply pl-5;
-  }
+    .markdown ul {
+        list-style-type: disc;
+        padding-left: calc(var(--spacing) * 5);
+    }
 
-  .markdown ol {
-    @apply list-decimal;
-    @apply pl-5;
-  }
-
-  /* @screen sm {
-  .markdown ul, .markdown ol {
-    @apply pl-10;
-  }
-} */
+    .markdown ol {
+        list-style-type: decimal;
+        padding-left: calc(var(--spacing) * 5);
+    }
 }
