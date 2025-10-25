@@ -9,14 +9,10 @@ DEPLOY_LOCAL_SOURCE = "public"
 DEPLOY_TARGET_DIR = '~/public_html/dahlheim.ch'
 DEPLOY_KEEP_RELEASES = 3
 
-[tasks.dev]
-depends = ["watch", "serve"]
 
-[tasks.serve]
+[tasks.server]
+alias = 'dev'
 run = "hugo server -D --disableFastRender"
-
-[tasks.watch]
-run = "tailwindcss -i ./assets/_src/css/styles.css -o ./assets/css/styles.css -w"
 
 [tasks.build]
 run = """

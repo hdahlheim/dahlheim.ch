@@ -6,15 +6,8 @@
     <title>{{ .Title }} — {{ $.Site.Title }}</title>
     {{- else -}}
     <title>{{ $.Site.Title }}</title>
-    {{- end -}} {{- with resources.Get "/css/styles.css" | minify -}}
-    <style>
-        {{- .Content | safeCSS -}}
-    </style>
-    {{- end -}} {{- with resources.Get "/css/syntax.css" | minify -}}
-    <style>
-        {{- .Content | safeCSS -}}
-    </style>
-    {{- end -}}
+    {{- end -}} {{ with (templates.Defer (dict "key" "global")) }} {{ partial
+    "css.html" . }} {{- end -}}
     <!-- <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css"> -->
 </head>

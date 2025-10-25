@@ -2,8 +2,7 @@
 # Generated files by hugo
 public/
 resources/_gen/
-
-assets/css/styles.css
+hugo_stats.json
 
 
 # Created by https://www.gitignore.io/api/node
@@ -103,4 +102,3 @@ public/
 .dynamodb/
 
 # End of https://www.gitignore.io/api/node
-
