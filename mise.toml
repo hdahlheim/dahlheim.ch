@@ -1,6 +1,7 @@
 [tools]
 hugo = "latest"
 node = "lts"
+pnpm = "latest"
 "ubi:tailwindlabs/tailwindcss" = "latest"
 
 [tasks.build]
