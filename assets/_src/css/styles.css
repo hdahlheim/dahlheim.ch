@@ -1,108 +1,133 @@
-@tailwind base;
+@import 'tailwindcss';
 
-@tailwind components;
+@config '../../../tailwind.config.js';
 
-.markdown {
-  @apply text-slate-800;
-  @apply text-lg;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-.markdown > * + *,  .markdown li + li, .markdown li > p + p {
-  @apply mt-2.5;
-}
+@layer components {
+  .markdown {
+    @apply text-slate-800;
+    @apply text-lg;
+  }
 
-.markdown strong {
-  @apply text-slate-800;
-  @apply font-bold;
-}
+  .markdown > * + *,
+  .markdown li + li,
+  .markdown li > p + p {
+    @apply mt-2.5;
+  }
 
-.markdown a {
-  @apply underline;
-}
+  .markdown strong {
+    @apply text-slate-800;
+    @apply font-bold;
+  }
 
-.markdown a:hover {
-  @apply text-red-600;
-}
+  .markdown a {
+    @apply underline;
+  }
 
-.markdown strong a {
-  @apply font-bold;
-}
+  .markdown a:hover {
+    @apply text-red-600;
+  }
 
-.h1, .markdown h1 {
-  @apply leading-tight;
-  @apply text-5xl;
-  @apply font-semibold;
-  @apply text-slate-700;
-  @apply mb-2;
-  @apply mt-10;
-}
+  .markdown strong a {
+    @apply font-bold;
+  }
 
-.h2, .markdown h2 {
-  @apply leading-tight;
-  @apply text-3xl;
-  @apply font-medium;
-  @apply text-slate-500;
-  @apply mb-2;
-  @apply mt-10;
-}
+  .h1,
+  .markdown h1 {
+    @apply leading-tight;
+    @apply text-5xl;
+    @apply font-semibold;
+    @apply text-slate-700;
+    @apply mb-2;
+    @apply mt-10;
+  }
 
-.h2, .markdown h2::before {
-  content: "## ";
-  @apply text-slate-300;
-}
+  .h2,
+  .markdown h2 {
+    @apply leading-tight;
+    @apply text-3xl;
+    @apply font-medium;
+    @apply text-slate-500;
+    @apply mb-2;
+    @apply mt-10;
+  }
 
-.h3, .markdown h3 {
-  @apply leading-tight;
-  @apply text-xl;
-  @apply font-medium;
-  @apply text-slate-800;
-  @apply mt-8;
-  @apply -mb-2;
-}
+  .h2,
+  .markdown h2::before {
+    content: '## ';
+    @apply text-slate-300;
+  }
 
-.h3, .markdown h3::before {
-  content: "### ";
-  @apply text-slate-300;
-}
+  .h3,
+  .markdown h3 {
+    @apply leading-tight;
+    @apply text-xl;
+    @apply font-medium;
+    @apply text-slate-800;
+    @apply mt-8;
+    @apply -mb-2;
+  }
 
-.markdown code {
-  @apply font-mono;
-  @apply text-sm;
-  @apply inline;
-  @apply px-1;
-}
+  .h3,
+  .markdown h3::before {
+    content: '### ';
+    @apply text-slate-300;
+  }
 
-.markdown pre {
-  @apply rounded;
-  @apply overflow-hidden;
-}
-.markdown pre code {
-  @apply block;
-  @apply bg-slate-800;
-  @apply p-4;
-}
+  .markdown code {
+    @apply font-mono;
+    @apply text-sm;
+    @apply inline;
+    @apply px-1;
+  }
 
-.markdown blockquote {
-  @apply border-l-4;
-  @apply border-slate-300;
-  @apply pl-4;
-  @apply italic;
-}
+  .markdown pre {
+    @apply rounded-sm;
+    @apply overflow-hidden;
+  }
+  .markdown pre code {
+    @apply block;
+    @apply bg-slate-800;
+    @apply p-4;
+  }
 
-.markdown ul {
-  @apply list-disc;
-  @apply pl-5;
-}
+  .markdown blockquote {
+    @apply border-l-4;
+    @apply border-slate-300;
+    @apply pl-4;
+    @apply italic;
+  }
 
-.markdown ol {
-  @apply list-decimal;
-  @apply pl-5;
-}
+  .markdown ul {
+    @apply list-disc;
+    @apply pl-5;
+  }
 
-/* @screen sm {
+  .markdown ol {
+    @apply list-decimal;
+    @apply pl-5;
+  }
+
+  /* @screen sm {
   .markdown ul, .markdown ol {
     @apply pl-10;
   }
 } */
-
-@tailwind utilities;
+}

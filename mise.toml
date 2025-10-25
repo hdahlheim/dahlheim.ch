@@ -1,8 +1,9 @@
 [tools]
 hugo = "latest"
-node = "lts"
-pnpm = "latest"
 "ubi:tailwindlabs/tailwindcss" = "latest"
+
+[tasks.watch]
+run = "tailwindcss -c ./tailwind.config.js -i ./assets/_src/css/styles.css -o ./assets/css/styles.css -w"
 
 [tasks.build]
 run = "tailwindcss -c ./tailwind.config.js -i ./assets/_src/css/styles.css -o ./assets/css/styles.css"
