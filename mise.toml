@@ -1,0 +1,7 @@
+[tools]
+hugo = "latest"
+node = "lts"
+"ubi:tailwindlabs/tailwindcss" = "latest"
+
+[tasks.build]
+run = "tailwindcss -c ./tailwind.config.js -i ./assets/_src/css/styles.css -o ./assets/css/styles.css"
