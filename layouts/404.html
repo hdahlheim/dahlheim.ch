@@ -1,14 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="font-sans">
-  {{- partial "head.html" . -}}
-  <body>
-    <main class="flex items-center justify-center h-screen">
-      <div class="text-center">
-        <p class="text-6xl">
-          404 – Oh no<span class="text-highlight">!</span>
-        </p>
-        <a class="text-xl font-semibold text-highlight" href="{{ "/" | relURL }}">Go Home</a>
-      </div>
-    </main>
-  </body>
+    {{- partial "head.html" . -}}
+    <body>
+        <main class="flex items-center justify-center h-screen">
+            <div class="text-center">
+                <p class="text-6xl">
+                    404 – Oh no<span class="text-highlight">!</span>
+                </p>
+                <a
+                    class="text-xl font-semibold text-highlight"
+                    href="{{ "/" | relURL }}"
+                    >Go Home</a
+                >
+            </div>
+        </main>
+    </body>
 </html>

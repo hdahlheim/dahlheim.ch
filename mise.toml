@@ -16,7 +16,6 @@ run = "hugo server -D --disableFastRender"
 
 [tasks.build]
 run = """
-tailwindcss -i ./assets/_src/css/styles.css -o ./assets/css/styles.css
 hugo --gc --minify
 """
 

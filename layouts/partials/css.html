@@ -1,9 +1,14 @@
-{{- with resources.Get "css/styles.css" -}} {{ $opts := dict "minify" (not
-hugo.IsDevelopment) }} {{ with . | css.TailwindCSS $opts }}
+{{- with resources.Get "css/styles.css" -}}
+    {{ $opts := dict "minify" (not
+        hugo.IsDevelopment)
+    }}
+    {{ with . | css.TailwindCSS $opts }}
 <style>
     {{- .Content | safeCSS -}}
 </style>
-{{- end -}}{{- end -}} {{- with resources.Get "/css/syntax.css" | minify -}}
+    {{- end -}}
+{{- end -}}
+{{- with resources.Get "/css/syntax.css" | minify -}}
 <style>
     {{- .Content | safeCSS -}}
 </style>

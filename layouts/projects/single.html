@@ -1,43 +1,49 @@
 {{ define "main" }}
-<article aria-labelledby="{{.Title | anchorize}}" class="max-w-full mb-12 sm:mb-24">
-  <header class="max-w-full">
-    <h1 class="mb-2 text-2xl font-semibold">
-      <a href="{{ .RelPermalink }}">
-        {{ .Title }}
-      </a>
-    </h1>
-    <p class="mb-4 text-slate-500">
-      <time datetime="{{ .Date.Format "2006-01-02" }}">
-        {{ .Date.Format "January 2, 2006" }}
-      </time>
-    {{ if (in .Params.categories "articles") }}
-      {{ $readingtime := div (.Content | countwords) 200 }}
-      | {{ cond (lt $readingtime 1) 1 $readingtime }} min read
-    {{ end }}
-    {{ if .Params.series }}
-      {{ with $series := index $.Site.Data.series .Params.series }}
-        | {{ $series.title }}
-        {{ range $index, $p := $series.posts }}
-          {{ if eq $p.slug .Params.slug }}
-            {{ add $index 1 }}/{{ len $series.posts }}
-          {{ end }}
+    <article
+        aria-labelledby="{{ .Title | anchorize }}"
+        class="max-w-full mb-12 sm:mb-24"
+    >
+        <header class="max-w-full">
+            <h1 class="mb-2 text-2xl font-semibold">
+                <a href="{{ .RelPermalink }}">
+                    {{ .Title }}
+                </a>
+            </h1>
+            <p class="mb-4 text-slate-500">
+                <time datetime="{{ .Date.Format "2006-01-02" }}">
+                    {{ .Date.Format "January 2, 2006" }}
+                </time>
+                {{ if (in .Params.categories "articles") }}
+                    {{ $readingtime := div (.Content | countwords) 200 }}
+                    | {{ cond (lt $readingtime 1) 1 $readingtime }} min read
+                {{ end }}
+                {{ if .Params.series }}
+                    {{ with $series := index $.Site.Data.series .Params.series }}
+                        |
+                        {{ $series.title }}
+                        {{ range $index, $p := $series.posts }}
+                            {{ if eq $p.slug .Params.slug }}
+                                {{ add $index 1 }}/{{ len $series.posts }}
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+            </p>
+        </header>
+        {{ partial "translations.html" . }}
+        <section
+            class="max-w-full mt-4 prose prose-slate prose-table:overflow-x-scroll prose-a:hover:text-red-500 prose-table:min-w-full"
+        >
+            {{ .Content }}
+        </section>
+        {{ if .Params.series }}
+            {{ with index $.Site.Data.series .Params.series }}
+                <div id="series" class="pt-8">
+                    {{ partial "series.html" (dict "series" . "currentSlug" $.Page.Slug) }}
+                </div>
+            {{ end }}
         {{ end }}
-      {{ end }}
-    {{ end }}
-    </p>
-  </header>
-  {{ partial "translations.html" . }}
-  <section class="max-w-full mt-4 prose prose-slate prose-table:overflow-x-scroll prose-a:hover:text-red-500 prose-table:min-w-full">
-    {{ .Content }}
-  </section>
-  {{ if .Params.series }}
-    {{ with index $.Site.Data.series .Params.series }}
-      <div id="series" class="pt-8">
-        {{ partial "series.html" (dict "series" . "currentSlug" $.Page.Slug) }}
-      </div>
-    {{ end }}
-  {{ end }}
-</article>
-{{ $style := resources.Get "css/syntax.css" | minify | fingerprint }}
-<link rel="stylesheet" href="{{ $style.Permalink }}">
+    </article>
+    {{ $style := resources.Get "css/syntax.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}" />
 {{ end }}

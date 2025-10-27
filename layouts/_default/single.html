@@ -1,13 +1,13 @@
 {{ define "main" }}
-  <section aria-labelledby="page-title" class="mb-12 sm:mb-24">
-    <h1 id="page-title" class="mb-8 text-xl font-semibold">
-      <a href="{{ .RelPermalink }}">
-        {{ .Title }}
-      </a>
-    </h1>
-    <div class="prose prose-slate">
-      {{ .Content }}
-    </div>
-    {{ partial "translations.html" . }}
-  </section>
+    <section aria-labelledby="page-title" class="mb-12 sm:mb-24">
+        <h1 id="page-title" class="mb-8 text-xl font-semibold">
+            <a href="{{ .RelPermalink }}">
+                {{ .Title }}
+            </a>
+        </h1>
+        <div class="prose prose-slate">
+            {{ .Content }}
+        </div>
+        {{ partial "translations.html" . }}
+    </section>
 {{ end }}

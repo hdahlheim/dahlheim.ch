@@ -1,17 +1,40 @@
 <header class="max-w-4xl px-6 py-4 mx-auto mt-10 sm:px-12 lg:px-0">
-  <div>
-    <nav class="items-center justify-between md:flex">
-      <a class="text-lg font-semibold text-highlight" href="{{ "/" | absLangURL }}">
-        {{ .Site.Title }}
-      </a>
-      <ul class="font-medium sm:space-x-6 sm:flex">
-        {{- $currentPage := . -}}
-        {{- range .Site.Menus.main -}}
-        <li class="{{ if $currentPage.IsMenuCurrent "main" . }}text-slate-700{{else}}text-slate-500{{end}} hover:text-slate-700 underline underline-offset-2">
-          <a class="hover:text-red-500" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
-        </li>
-        {{end}}
-      </ul>
-    </nav>
-  </div>
+    <div>
+        <nav class="items-center justify-between md:flex">
+            <a
+                class="text-lg font-semibold text-highlight"
+                href="{{ "/" | absLangURL }}"
+            >
+                {{ .Site.Title }}
+            </a>
+            <ul class="font-medium sm:space-x-6 sm:flex">
+                {{- $currentPage := . -}}
+                {{ with .Site.Menus.main }}
+                    {{ range . }}
+                        {{ if or ($.HasMenuCurrent "main" .) ($.IsMenuCurrent "main" .) }}
+                            <li
+                                class="text-slate-700  hover:text-slate-700 underline underline-offset-2"
+                            >
+                                <a
+                                    class="hover:text-red-500"
+                                    href="{{ .URL | absLangURL }}"
+                                    >{{ .Name }}</a
+                                >
+                            </li>
+                        {{ else }}
+                            <li
+                                class="text-slate-500   hover:text-slate-700 underline underline-offset-2"
+                            >
+                                <a
+                                    class="hover:text-red-500"
+                                    href="{{ .URL | absLangURL }}"
+                                    >{{ .Name }}</a
+                                >
+                            </li>
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+            </ul>
+        </nav>
+    </div>
 </header>

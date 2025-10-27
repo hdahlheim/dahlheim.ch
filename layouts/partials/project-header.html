@@ -1,20 +1,21 @@
 {{ $project := . }}
 <header>
-  <h1 id="{{$project.Title | anchorize}}" class="mb-5 text-4xl font-bold">
-    <a href="{{ $project.RelPermalink }}">
-      {{ $project.Title }}
-    </a>
-  </h1>
-  <h2 class="sr-only">Project Metadata</h2>
-  {{ partial "project-meta.html" . }}
+    <h1 id="{{ $project.Title | anchorize }}" class="mb-5 text-4xl font-bold">
+        <a href="{{ $project.RelPermalink }}">
+            {{ $project.Title }}
+        </a>
+    </h1>
+    <h2 class="sr-only">Project Metadata</h2>
+    {{ partial "project-meta.html" . }}
     {{ if $project.Params.series }}
-      {{ with $series := index $.Site.Data.series $project.Params.series }}
-        | {{ $series.title }}
-        {{ range $index, $p := $series.projects }}
-          {{ if eq $p.slug $project.Params.slug }}
-            {{ add $index 1 }}/{{ len $series.projects }}
-          {{ end }}
+        {{ with $series := index $.Site.Data.series $project.Params.series }}
+            |
+            {{ $series.title }}
+            {{ range $index, $p := $series.projects }}
+                {{ if eq $p.slug $project.Params.slug }}
+                    {{ add $index 1 }}/{{ len $series.projects }}
+                {{ end }}
+            {{ end }}
         {{ end }}
-      {{ end }}
     {{ end }}
 </header>
